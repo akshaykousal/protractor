@@ -2,7 +2,10 @@ describe("Non Angular Application - Test Suite", function () {
 
     it("Test1", function () {
 
+        //use either of below to work with non-angular application
+
         browser.waitForAngularEnabled(false);
+        // browser.ignoreSynchronization=true;
 
         browser.get("http://demowebshop.tricentis.com/");
         browser.manage().window().maximize();

@@ -1,0 +1,1 @@
+Protractor with Jasmine framework to automate angular applications

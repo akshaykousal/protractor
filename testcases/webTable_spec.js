@@ -12,7 +12,7 @@ describe("Angular Demo Project - Test Suite", function () {
 
     it("Test1 - Validate last product details", async function () {
         await element.all(by.tagName("tr")).last().element(by.id("view")).click();
-        browser.sleep(2000);
+        await browser.sleep(2000);
 
         expect(await element(by.tagName("h3")).getText()).toBe("Product View");
 
@@ -35,15 +35,15 @@ describe("Angular Demo Project - Test Suite", function () {
 
     it("Test2 - Navigate back to product list", async function () {
         await element(by.id("list-menu")).click();
-        browser.sleep(2000);
+        await browser.sleep(2000);
         expect(await element(by.tagName("h3")).getText()).toBe("Product List");
     });
 
     it("Test3 - Delete first Product from the list", async function () {
-        var firstProuctName = element.all(by.tagName("tr")).get(1).element(by.tagName("td")).getText();
+        var firstProuctName = await element.all(by.tagName("tr")).get(1).element(by.tagName("td")).getText();
         await element.all(by.tagName("tr")).get(1).element(by.id("delete")).click();
-        browser.sleep(2000);
-        expect(element.all(by.tagName("tr")).get(1).element(by.tagName("td")).getText()).not.toBe(firstProuctName);
+        await browser.sleep(2000);
+        expect(await element.all(by.tagName("tr")).get(1).element(by.tagName("td")).getText()).not.toBe(firstProuctName);
     });
 
 });
